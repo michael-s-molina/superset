@@ -47,7 +47,11 @@ export function createEphemeralState(
       });
       return response.json?.result ?? null;
     },
-    set: async (key: string, value: JsonValue, options: EphemeralSetOptions) => {
+    set: async (
+      key: string,
+      value: JsonValue,
+      options: EphemeralSetOptions,
+    ) => {
       await SupersetClient.put({
         endpoint: buildUrl(key, true),
         body: JSON.stringify({ value, ttl: options.ttl }),
@@ -64,7 +68,11 @@ export function createEphemeralState(
       const response = await SupersetClient.get({ endpoint: buildUrl(key) });
       return response.json?.result ?? null;
     },
-    set: async (key: string, value: JsonValue, options: EphemeralSetOptions) => {
+    set: async (
+      key: string,
+      value: JsonValue,
+      options: EphemeralSetOptions,
+    ) => {
       await SupersetClient.put({
         endpoint: buildUrl(key),
         body: JSON.stringify({ value, ttl: options.ttl }),
